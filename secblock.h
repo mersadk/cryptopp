@@ -78,15 +78,15 @@ public:
 	/// \param args variadic arguments
 	/// \details This is a C++11 feature. It is available when CRYPTOPP_CXX11_VARIADIC_TEMPLATES
 	///   is defined. The define is controlled by compiler versions detected in config.h.
-    template<typename U, typename... Args>
-    void construct(U* ptr, Args&&... args) {::new ((void*)ptr) U(std::forward<Args>(args)...);}
+    template<typename V, typename... Args>
+    void construct(V* ptr, Args&&... args) {::new ((void*)ptr) V(std::forward<Args>(args)...);}
 
 	/// \brief Destroys an U constructed with variadic arguments
 	/// \tparam U the type to be forwarded
 	/// \details This is a C++11 feature. It is available when CRYPTOPP_CXX11_VARIADIC_TEMPLATES
 	///   is defined. The define is controlled by compiler versions detected in config.h.
-    template<typename U>
-    void destroy(U* ptr) {if (ptr) ptr->~U();}
+    template<typename V>
+    void destroy(V* ptr) {if (ptr) ptr->~V();}
 
 #endif
 
